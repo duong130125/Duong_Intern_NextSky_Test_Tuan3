@@ -1,0 +1,24 @@
+{
+  "current": {
+    "color_primary": "#000000",
+    "color_secondary": "#555555",
+    "color_background": "#FFFFFF",
+    "color_accent": "#D73F0F",
+    "color_border": "#EBEBEB",
+    "color_badge_sale": "#D73F0F",
+    "color_badge_preorder": "#177983",
+    "color_badge_soldout": "#757575",
+    "font_size_base": 16,
+    "container_width": 1410,
+    "container_padding": 30,
+    "social_instagram": "https://instagram.com/umino",
+    "social_tiktok": "https://tiktok.com/@umino",
+    "social_youtube": "https://youtube.com/@umino",
+    "social_twitter": "https://twitter.com/umino",
+    "social_facebook": "https://facebook.com/umino",
+    "store_address": "268 St, South New York/NY 98944, United States",
+    "store_phone": "+222-1800-2628",
+    "store_email": "blueskytechcompany@gmail.com",
+    "content_for_index": []
+  }
+}

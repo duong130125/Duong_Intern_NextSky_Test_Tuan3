@@ -1,0 +1,229 @@
+{{ 'component-footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="footer bg-white pt-100 pb-0">
+  <div class="container">
+    <div class="footer-top grid grid-cols-footer gap-40 mb-70 lgd:grid-cols-1 lgd:gap-20 lgd:mb-30 sm:grid-cols-1">
+      <div class="footer-col footer-logo-col">
+        {%- if section.settings.logo != blank -%}
+          {{
+            section.settings.logo
+            | image_url: width: 184
+            | image_tag:
+              class: 'footer-logo mb-30',
+              widths: '92, 184',
+              height: 20,
+              width: 92,
+              alt: shop.name,
+              loading: 'lazy'
+          }}
+        {%- else -%}
+          <img
+            width="92"
+            height="20"
+            src="{{ 'Logo.svg' | asset_url }}"
+            alt="{{ shop.name }}"
+            class="footer-logo mb-30"
+            loading="lazy"
+          >
+        {%- endif -%}
+
+        <div class="footer-contact mb-20">
+          <p class="text-muted text-base mb-5">{{ settings.store_address }}</p>
+          <p class="text-muted text-base mb-5">{{ settings.store_phone }}</p>
+          <p class="text-muted text-base mb-5">{{ settings.store_email }}</p>
+        </div>
+
+        <div class="footer-socials mb-25">
+          {% render 'social-icons' %}
+        </div>
+
+        <div class="follow-shop flex items-center gap-10 mt-25">
+          <div class="icon-wrap w-36 h-36 bg-primary-blue rounded-full flex justify-center items-center text-white">
+            <img width="36" height="36" src="{{ 'icon.svg' | asset_url }}" alt="" loading="lazy">
+          </div>
+          <span class="follow-shop__label text-base text-dark flex items-center gap-5">
+            Follow on
+            <a href="https://shop.umino.com/" class="follow-shop__logo flex">
+              <img width="40" height="16" src="{{ 'Logo_shop.svg' | asset_url }}" alt="Shop" loading="lazy">
+            </a>
+          </span>
+        </div>
+      </div>
+
+      <div class="footer-col accordion">
+        <h3 class="footer-title text-sm font-semibold uppercase pt-8 mb-25">HOT CATEGORIES</h3>
+        <ul class="footer-links">
+          {%- if section.settings.menu_categories != blank and section.settings.menu_categories.links.size > 0 -%}
+            {%- for link in section.settings.menu_categories.links -%}
+              <li class="mb-14">
+                <a href="{{ link.url }}" class="text-muted text-base transition-all hover:text-primary hover:pl-5">
+                  {{- link.title -}}
+                </a>
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li class="mb-14"><a href="#" class="text-muted text-base">Special Offers</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Performance</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">T-shirts</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Underwear</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Top Brands</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Online Exclusive</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="footer-col accordion active">
+        <h3 class="footer-title text-sm font-semibold uppercase pt-8 mb-25">CUSTOMER SERVICE</h3>
+        <ul class="footer-links">
+          {%- if section.settings.menu_service != blank and section.settings.menu_service.links.size > 0 -%}
+            {%- for link in section.settings.menu_service.links -%}
+              <li class="mb-14">
+                <a href="{{ link.url }}" class="text-muted text-base transition-all hover:text-primary hover:pl-5">
+                  {{- link.title -}}
+                </a>
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li class="mb-14"><a href="#" class="text-muted text-base">Privacy Policy</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Refund Policy</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Shipping & Return</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Term & Conditions</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Advanced Search</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Theme FAQs</a></li>
+            <li class="mb-14"><a href="#" class="text-muted text-base">Store Locations</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="footer-col accordion active">
+        <h3 class="footer-title text-sm font-semibold uppercase pt-8 mb-25">SIGN UP TO NEWSLETTER</h3>
+        <div class="footer-links">
+          <p class="footer-newsletter-desc text-muted text-base leading-7 mb-25">
+            Enter your email address to get $10 off your first order and free shipping. Updates information on Sales and
+            Offers.
+          </p>
+          {%- form 'customer', class: 'newsletter-form flex gap-10 h-50 max-w-450 w-full' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input
+              type="email"
+              name="contact[email]"
+              class="flex-1 w-290 px-20 border rounded-pill outline-none text-sm"
+              placeholder="Enter your email..."
+              required
+            >
+            <button type="submit" class="btn btn-dark w-150 rounded-pill uppercase font-semibold text-xs h-full">
+              Subscribe
+            </button>
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom border-top py-35 flex justify-between items-center text-muted sm:flex-col sm:gap-15 sm:text-center">
+      <div class="footer-selectors flex gap-20 text-base">
+        <a
+          href="#"
+          class="flex items-center gap-5 font-medium text-base"
+          style="width: 67px; height: 23px; color: #111111"
+        >
+          English
+          <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.177734 0.984375C0.0592448 0.875 0 0.742839 0 0.587891C0 0.423828 0.0592448 0.282552 0.177734 0.164062C0.287109 0.0546875 0.423828 0 0.587891 0C0.751953 0 0.888672 0.0546875 0.998047 0.164062L4.08789 3.25391L7.17773 0.164062C7.28711 0.0546875 7.42383 0 7.58789 0C7.75195 0 7.88867 0.0546875 7.99805 0.164062C8.11654 0.282552 8.17578 0.423828 8.17578 0.587891C8.17578 0.742839 8.11654 0.875 7.99805 0.984375L4.49805 4.48438C4.38867 4.60286 4.25195 4.66211 4.08789 4.66211C3.92383 4.66211 3.78711 4.60286 3.67773 4.48438L0.177734 0.984375Z" fill="#555555"/>
+          </svg>
+        </a>
+        <a
+          href="#"
+          class="flex items-center gap-5 font-medium text-base"
+          style="width: 163px; height: 23px; color: #111111"
+        >
+          United States (USD $)
+          <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.177734 0.984375C0.0592448 0.875 0 0.742839 0 0.587891C0 0.423828 0.0592448 0.282552 0.177734 0.164062C0.287109 0.0546875 0.423828 0 0.587891 0C0.751953 0 0.888672 0.0546875 0.998047 0.164062L4.08789 3.25391L7.17773 0.164062C7.28711 0.0546875 7.42383 0 7.58789 0C7.75195 0 7.88867 0.0546875 7.99805 0.164062C8.11654 0.282552 8.17578 0.423828 8.17578 0.587891C8.17578 0.742839 8.11654 0.875 7.99805 0.984375L4.49805 4.48438C4.38867 4.60286 4.25195 4.66211 4.08789 4.66211C3.92383 4.66211 3.78711 4.60286 3.67773 4.48438L0.177734 0.984375Z" fill="#555555"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-copy text-base">© 2023 Umino Store. All Rights Reserved.</div>
+      <div class="payment-icons flex gap-5 flex-wrap justify-end">
+        <img
+          width="43"
+          height="26"
+          src="{{ 'payment-1.webp' | asset_url }}"
+          alt="Visa"
+          class="border rounded-sm object-contain"
+          loading="lazy"
+        >
+        <img
+          width="43"
+          height="26"
+          src="{{ 'payment-7.webp' | asset_url }}"
+          alt="PayPal"
+          class="border rounded-sm object-contain"
+          loading="lazy"
+        >
+        <img
+          width="43"
+          height="26"
+          src="{{ 'payment-2.webp' | asset_url }}"
+          alt="Mastercard"
+          class="border rounded-sm object-contain"
+          loading="lazy"
+        >
+        <img
+          width="43"
+          height="26"
+          src="{{ 'payment-3.webp' | asset_url }}"
+          alt="Discover"
+          class="border rounded-sm object-contain"
+          loading="lazy"
+        >
+        <img
+          width="43"
+          height="26"
+          src="{{ 'payment-4.webp' | asset_url }}"
+          alt="Western Union"
+          class="border rounded-sm object-contain"
+          loading="lazy"
+        >
+        <img
+          width="43"
+          height="26"
+          src="{{ 'payment-5.webp' | asset_url }}"
+          alt="Amex"
+          class="border rounded-sm object-contain"
+          loading="lazy"
+        >
+        <img
+          width="43"
+          height="26"
+          src="{{ 'payment-6.webp' | asset_url }}"
+          alt="Cirrus"
+          class="border rounded-sm object-contain"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_categories",
+      "label": "Hot Categories Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_service",
+      "label": "Customer Service Menu"
+    }
+  ]
+}
+{% endschema %}

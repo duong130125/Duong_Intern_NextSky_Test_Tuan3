@@ -1,0 +1,94 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Chuyển đến nội dung chính",
+      "close": "Đóng",
+      "open_menu": "Mở menu",
+      "previous_slide": "Slide trước",
+      "next_slide": "Slide tiếp theo",
+      "scroll_to_top": "Cuộn lên đầu trang"
+    },
+    "search": {
+      "label": "Tìm kiếm",
+      "placeholder": "Tìm kiếm sản phẩm..."
+    },
+    "cart": {
+      "title": "Giỏ hàng",
+      "empty": "Giỏ hàng của bạn đang trống",
+      "add_to_cart": "Thêm vào giỏ",
+      "view_cart": "Xem giỏ hàng",
+      "checkout": "Thanh toán",
+      "subtotal": "Tổng tiền",
+      "remove": "Xóa",
+      "quantity": "Số lượng"
+    },
+    "newsletter": {
+      "title": "Đăng ký nhận tin",
+      "description": "Nhập email của bạn để nhận ưu đãi $10 cho đơn hàng đầu tiên và miễn phí vận chuyển.",
+      "placeholder": "Nhập email của bạn...",
+      "subscribe": "ĐĂNG KÝ",
+      "success": "Cảm ơn bạn đã đăng ký!",
+      "error": "Vui lòng nhập địa chỉ email hợp lệ."
+    },
+    "404": {
+      "title": "404 Không tìm thấy trang",
+      "subtext": "Trang bạn yêu cầu không tồn tại.",
+      "continue_shopping": "Tiếp tục mua sắm"
+    },
+    "social": {
+      "follow_on_shop": "Theo dõi trên Shop"
+    }
+  },
+  "sections": {
+    "header": {
+      "menu": "Danh mục",
+      "cart": "Giỏ hàng",
+      "account": "Tài khoản",
+      "search": "Tìm kiếm",
+      "wishlist": "Yêu thích",
+      "order_tracking": "Theo dõi đơn hàng"
+    },
+    "hero": {
+      "explore_now": "MUA NGAY"
+    },
+    "featured_collections": {
+      "title": "Bộ sưu tập nổi bật",
+      "subtitle": "Nâng tầm phong cách của bạn với bộ sưu tập thời trang mới nhất."
+    },
+    "new_arrivals": {
+      "title": "Hàng mới về",
+      "subtitle": "Những sản phẩm mới nhất đang được yêu thích."
+    },
+    "testimonials": {
+      "title": "Đánh giá của khách hàng",
+      "subtitle": "Xem khách hàng nói gì về trải nghiệm mua sắm tại cửa hàng của chúng tôi."
+    },
+    "contact": {
+      "title": "Liên hệ với chúng tôi",
+      "subtitle": "Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.",
+      "name": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "subject": "Chủ đề",
+      "message": "Nội dung tin nhắn",
+      "submit": "Gửi tin nhắn",
+      "success": "Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.",
+      "error": "Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau."
+    },
+    "footer": {
+      "hot_categories": "Danh mục nổi bật",
+      "customer_service": "Hỗ trợ khách hàng",
+      "copyright": "© {{ year }} Umino Store. Tất cả quyền được bảo lưu."
+    }
+  },
+  "products": {
+    "product": {
+      "sold_out": "Hết hàng",
+      "pre_order": "Đặt trước",
+      "sale": "Giảm giá",
+      "add_to_cart": "Thêm vào giỏ",
+      "quick_view": "Xem nhanh",
+      "wishlist": "Thêm vào yêu thích"
+    }
+  }
+}

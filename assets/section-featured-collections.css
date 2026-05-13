@@ -1,0 +1,74 @@
+/* === Featured Collections Grid Styles === */
+.fc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1410px;
+  margin: 0 auto;
+}
+
+.fc-header {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 601px;
+  align-items: center;
+}
+
+.fc-header .section-title,
+.fc-header .section-subtitle {
+  margin: 0 !important;
+  line-height: 1;
+}
+
+.fc-grid {
+  display: grid;
+}
+
+.grid-fc-desktop {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  grid-template-areas:
+    "clothing sunglasses sneaker"
+    "clothing bags sneaker";
+  min-height: 730px;
+}
+
+@media (max-width: 1023px) {
+  .lgd\:grid-fc-tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: clamp(144px, auto, 185px);
+    grid-template-areas:
+      "clothing bags"
+      "clothing sneaker"
+      "sunglasses sneaker";
+  }
+}
+
+.item-clothing { grid-area: clothing; }
+.item-sunglasses { grid-area: sunglasses; }
+.item-bags { grid-area: bags; }
+.item-sneaker { grid-area: sneaker; }
+
+.fc-card--tall {
+  grid-row: span 2;
+}
+
+.fc-card img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.fc-card .btn {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.fc-card .btn:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.sm\:w-calc-10 {
+  width: calc(100% - 20px);
+}

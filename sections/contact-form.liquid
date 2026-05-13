@@ -1,0 +1,149 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+<section class="contact-form-section py-100 sm:py-60">
+  <div class="container">
+    <div class="max-w-1200 mx-auto grid grid-cols-2 gap-60 md:grid-cols-1 md:gap-40">
+      
+      {%- comment -%} Contact Info Column {%- endcomment -%}
+      <div class="contact-info">
+        <h2 class="section-title text-left mb-20">{{ section.settings.title }}</h2>
+        <p class="section-subtitle text-left mb-40">{{ section.settings.subtitle }}</p>
+        
+        <div class="info-list flex flex-col gap-25">
+          <div class="info-item flex gap-15">
+            <div class="icon-box w-50 h-50 rounded-full border flex justify-center items-center flex-shrink-0">
+              <img width="20" height="20" src="{{ 'home.svg' | asset_url }}" alt="" loading="lazy">
+            </div>
+            <div class="info-content">
+              <h4 class="text-base font-semibold mb-5">Address</h4>
+              <p class="text-muted text-sm">{{ settings.store_address }}</p>
+            </div>
+          </div>
+          <div class="info-item flex gap-15">
+            <div class="icon-box w-50 h-50 rounded-full border flex justify-center items-center flex-shrink-0">
+              <img width="20" height="20" src="{{ 'clock.svg' | asset_url }}" alt="" loading="lazy">
+            </div>
+            <div class="info-content">
+              <h4 class="text-base font-semibold mb-5">Phone</h4>
+              <p class="text-muted text-sm">{{ settings.store_phone }}</p>
+            </div>
+          </div>
+          <div class="info-item flex gap-15">
+            <div class="icon-box w-50 h-50 rounded-full border flex justify-center items-center flex-shrink-0">
+              <img width="20" height="20" src="{{ 'login.svg' | asset_url }}" alt="" loading="lazy">
+            </div>
+            <div class="info-content">
+              <h4 class="text-base font-semibold mb-5">Email</h4>
+              <p class="text-muted text-sm">{{ settings.store_email }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {%- comment -%} Form Column {%- endcomment -%}
+      <div class="contact-form-wrap">
+        {%- form 'contact', class: 'contact-form grid gap-20' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="form-success p-20 bg-green-100 text-green-800 rounded-md mb-20">
+              {{ 'sections.contact.success' | t }}
+            </div>
+          {%- elsif form.errors -%}
+            <div class="form-error p-20 bg-red-100 text-red-800 rounded-md mb-20">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div class="grid grid-cols-2 gap-20 sm:grid-cols-1">
+            <div class="field-wrap">
+              <label class="visually-hidden" for="ContactForm-name">{{ 'sections.contact.name' | t }}</label>
+              <input 
+                type="text" 
+                id="ContactForm-name" 
+                name="contact[name]" 
+                class="w-full h-50 px-20 border rounded-pill outline-none" 
+                placeholder="{{ 'sections.contact.name' | t }}" 
+                required
+              >
+            </div>
+            <div class="field-wrap">
+              <label class="visually-hidden" for="ContactForm-email">{{ 'sections.contact.email' | t }}</label>
+              <input 
+                type="email" 
+                id="ContactForm-email" 
+                name="contact[email]" 
+                class="w-full h-50 px-20 border rounded-pill outline-none" 
+                placeholder="{{ 'sections.contact.email' | t }}" 
+                required
+              >
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <label class="visually-hidden" for="ContactForm-phone">{{ 'sections.contact.phone' | t }}</label>
+            <input 
+              type="tel" 
+              id="ContactForm-phone" 
+              name="contact[phone]" 
+              class="w-full h-50 px-20 border rounded-pill outline-none" 
+              placeholder="{{ 'sections.contact.phone' | t }}"
+            >
+          </div>
+
+          <div class="field-wrap">
+            <label class="visually-hidden" for="ContactForm-subject">{{ 'sections.contact.subject' | t }}</label>
+            <input 
+              type="text" 
+              id="ContactForm-subject" 
+              name="contact[subject]" 
+              class="w-full h-50 px-20 border rounded-pill outline-none" 
+              placeholder="{{ 'sections.contact.subject' | t }}"
+            >
+          </div>
+
+          <div class="field-wrap">
+            <label class="visually-hidden" for="ContactForm-body">{{ 'sections.contact.message' | t }}</label>
+            <textarea 
+              rows="5" 
+              id="ContactForm-body" 
+              name="contact[body]" 
+              class="w-full p-20 border rounded-lg outline-none resize-none" 
+              placeholder="{{ 'sections.contact.message' | t }}" 
+              required
+            ></textarea>
+          </div>
+
+          <div class="submit-wrap">
+            <button type="submit" class="btn btn-dark w-200 h-55 rounded-pill uppercase font-semibold">
+              {{ 'sections.contact.submit' | t }}
+            </button>
+          </div>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Contact Us"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}

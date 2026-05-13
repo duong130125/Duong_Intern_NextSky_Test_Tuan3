@@ -1,0 +1,28 @@
+/* === Testimonials Section Styles === */
+.testimonials-slider {
+  padding: 10px 0 40px;
+}
+
+.testimonial-card {
+  height: 100%;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-text {
+  line-height: 1.6;
+}
+
+.author-name {
+  color: var(--color-dark);
+}
+
+@media (min-width: 1024px) {
+  .testimonial-slide {
+    width: calc(33.333% - 20px);
+  }
+}

@@ -1,0 +1,80 @@
+{{ 'section-new-arrivals.css' | asset_url | stylesheet_tag }}
+
+<section class="new-arrivals py-100 sm:py-60">
+  <div class="container fc-container">
+    <div class="fc-header mx-auto">
+      {%- if section.settings.title != blank -%}
+        <h2 class="section-title h-32 text-center">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle h-11 text-center">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="slider-nav-container absolute top-0 right-30 hidden md:flex gap-15">
+      <button class="swiper-button-prev new-arrivals-prev relative left-0 shadow-none"></button>
+      <button class="swiper-button-next new-arrivals-next relative right-0 shadow-none"></button>
+    </div>
+
+    <div
+      class="new-arrivals-slider swiper overflow-visible lgd:overflow-hidden"
+      id="NewArrivalsSlider-{{ section.id }}"
+    >
+      <div class="swiper-wrapper lgd:flex lgd:flex-nowrap">
+        {%- assign collection = collections[section.settings.collection] -%}
+        {%- if collection != blank and collection.products_count > 0 -%}
+          {%- for product in collection.products limit: 4 -%}
+            <div class="swiper-slide product-slide">
+              {% render 'product-card', product: product, product_index: forloop.index %}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..4) -%}
+            <div class="swiper-slide product-slide">
+              {% render 'product-card', product: null, dummy_index: i %}
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "New Arrivals",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "New Arrivals"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Here's some of our most popular products people are in love with."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 4,
+      "step": 1,
+      "label": "Products to show",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Arrivals"
+    }
+  ]
+}
+{% endschema %}

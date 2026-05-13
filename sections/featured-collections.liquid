@@ -1,0 +1,142 @@
+{{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
+
+<section class="featured-collections pt-100 sm:py-60">
+  <div class="container fc-container">
+    <div class="fc-header mx-auto">
+      {%- if section.settings.title != blank -%}
+        <h2 class="section-title h-32 text-center">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle h-11 text-center">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="fc-grid grid grid-fc-desktop lgd:grid-fc-tablet gap-30 lgd:gap-20 xs:gap-10">
+      {%- for block in section.blocks -%}
+        <div
+          class="fc-card relative rounded-lg overflow-hidden flex-1 min-h-0 item-{{ block.settings.grid_area }}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 900
+              | image_tag:
+                class: 'w-full h-full bg-fc transition-all object-cover',
+                widths: '450, 900',
+                loading: 'lazy',
+                alt: block.settings.label
+              | escape
+            }}
+          {%- else -%}
+            {%- liquid
+              case block.settings.grid_area
+                when 'clothing'
+                  assign fallback_img = 'products-3.webp'
+                when 'sunglasses'
+                  assign fallback_img = 'products-4.webp'
+                when 'bags'
+                  assign fallback_img = 'products-5.webp'
+                when 'sneaker'
+                  assign fallback_img = 'products-6.webp'
+                else
+                  assign fallback_img = 'products-6.webp'
+              endcase
+            -%}
+            <img
+              src="{{ fallback_img | asset_url }}"
+              alt="{{ block.settings.label }}"
+              class="w-full h-full bg-fc transition-all object-cover"
+              width="900"
+              height="1200"
+              loading="lazy"
+            >
+          {%- endif -%}
+
+          {%- if block.settings.label != blank -%}
+            <a
+              href="{{ block.settings.link | default: '#' }}"
+              class="btn absolute bottom-30 left-50p translate-x--50p h-50 min-w-160 bg-white text-dark rounded-pill hover:bg-dark hover:text-white sm:bottom-15"
+            >
+              {{ block.settings.label }}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collections",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured Collections"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Elevate your style with our chic featured collection—where fashion meets flair effortlessly."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Clothing"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "grid_area",
+          "label": "Grid Area (Desktop)",
+          "options": [
+            { "value": "clothing", "label": "Tall Left (Clothing)" },
+            { "value": "sunglasses", "label": "Top Center (Sunglasses)" },
+            { "value": "bags", "label": "Bottom Center (Bags)" },
+            { "value": "sneaker", "label": "Tall Right (Sneaker)" }
+          ],
+          "default": "clothing"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_tall",
+          "label": "Is Tall Card?",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collections",
+      "blocks": [
+        { "type": "collection_card", "settings": { "grid_area": "clothing", "is_tall": true, "label": "Clothing" } },
+        { "type": "collection_card", "settings": { "grid_area": "sunglasses", "label": "Sunglasses" } },
+        { "type": "collection_card", "settings": { "grid_area": "bags", "label": "Bags" } },
+        { "type": "collection_card", "settings": { "grid_area": "sneaker", "is_tall": true, "label": "Sneaker" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

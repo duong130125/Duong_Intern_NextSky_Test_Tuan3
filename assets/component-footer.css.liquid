@@ -1,0 +1,98 @@
+/* === Footer Components === */
+.footer {
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-logo {
+  height: 20px;
+  width: auto;
+}
+
+.bg-primary-blue {
+  background-color: #5A31F4;
+}
+
+.rounded-pill {
+  border-radius: 100px;
+}
+
+.footer-socials .social-icons li a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.footer-socials .social-icons li a:hover {
+  background-color: var(--color-dark);
+  border-color: var(--color-dark);
+}
+
+.footer-socials .social-icons li a:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.footer-social-icon {
+  transition: transform 0.2s ease;
+}
+
+.newsletter-form input {
+  border: 1px solid var(--color-border);
+}
+
+.newsletter-form .btn-dark {
+  background-color: var(--color-dark);
+  color: var(--color-white) !important;
+}
+
+.border-top {
+  border-top: 1px solid var(--color-border);
+}
+
+/* === Mobile Accordion === */
+@media (max-width: 767px) {
+  .footer-col.accordion .footer-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  .footer-col.accordion .footer-title::after {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url('{{ "add.svg" | asset_url }}');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .footer-col.accordion.active .footer-title::after {
+    background-image: url('{{ "minus.svg" | asset_url }}');
+  }
+
+  .footer-col.accordion .footer-links {
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    transition: max-height 0.4s ease, padding-top 0.4s ease;
+  }
+
+  .footer-col.accordion.active .footer-links {
+    max-height: 500px;
+    padding-top: 20px;
+  }
+
+  .footer-bottom {
+    padding-bottom: 100px; /* Space for mobile nav */
+  }
+}

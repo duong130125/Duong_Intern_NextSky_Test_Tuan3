@@ -1,0 +1,167 @@
+{{ 'component-header.css' | asset_url | stylesheet_tag }}
+
+<header class="header sticky top-0 bg-white border-b z-50" id="Header">
+  <div class="header-inner relative h-73 flex items-center justify-between py-0 pl-18 pr-31 md:h-70 md:py-20 md:pl-30 md:pr-41">
+    <button class="mobile-menu-btn mobile-only" aria-label="Open Mobile Menu" id="MobileMenuBtn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 14H21C21.2812 14 21.5156 13.9062 21.7031 13.7188C21.9062 13.5156 22.0078 13.2734 22.0078 12.9922C22.0078 12.7266 21.9062 12.5 21.7031 12.3125C21.5156 12.1094 21.2812 12.0078 21 12.0078H3C2.71875 12.0078 2.47656 12.1094 2.27344 12.3125C2.08594 12.5 1.99219 12.7266 1.99219 12.9922C1.99219 13.2734 2.08594 13.5156 2.27344 13.7188C2.47656 13.9062 2.71875 14 3 14ZM3 8H21C21.2812 8 21.5156 7.90625 21.7031 7.71875C21.9062 7.51563 22.0078 7.27344 22.0078 6.99219C22.0078 6.72656 21.9062 6.5 21.7031 6.3125C21.5156 6.10938 21.2812 6.00781 21 6.00781H3C2.71875 6.00781 2.47656 6.10938 2.27344 6.3125C2.08594 6.5 1.99219 6.72656 1.99219 6.99219C1.99219 7.27344 2.08594 7.51563 2.27344 7.71875C2.47656 7.90625 2.71875 8 3 8ZM3 20H21C21.2812 20 21.5156 19.9062 21.7031 19.7188C21.9062 19.5156 22.0078 19.2734 22.0078 18.9922C22.0078 18.7266 21.9062 18.5 21.7031 18.3125C21.5156 18.1094 21.2812 18.0078 21 18.0078H3C2.71875 18.0078 2.47656 18.1094 2.27344 18.3125C2.08594 18.5 1.99219 18.7266 1.99219 18.9922C1.99219 19.2734 2.08594 19.5156 2.27344 19.7188C2.47656 19.9062 2.71875 20 3 20Z" fill="#111111"/>
+      </svg>
+    </button>
+
+    <a
+      href="{{ routes.root_url }}"
+      class="header-logo absolute left-50p top-50p translate--50--50 md:static md:transform-none"
+    >
+      {%- if section.settings.logo != blank -%}
+        {{
+          section.settings.logo
+          | image_url: width: 184
+          | image_tag: class: 'header-logo__img', widths: '92, 184', height: 20, width: 92, alt: shop.name
+        }}
+      {%- else -%}
+        <img
+          width="92"
+          height="20"
+          src="{{ 'Logo.svg' | asset_url }}"
+          alt="{{ shop.name }}"
+          class="header-logo__img"
+          loading="eager"
+        >
+      {%- endif -%}
+    </a>
+
+    <nav class="header-nav desktop-only absolute left-50p translate-x--50p">
+      <ul class="flex items-center justify-center gap-30">
+        <li class="has-dropdown" style="width: 62px; height: 23px; color: #111111">
+          <a
+            href="{{ routes.root_url }}"
+            class="flex items-center gap-5 font-medium text-base"
+          >
+            Home
+            <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.177734 0.984375C0.0592448 0.875 0 0.742839 0 0.587891C0 0.423828 0.0592448 0.282552 0.177734 0.164062C0.287109 0.0546875 0.423828 0 0.587891 0C0.751953 0 0.888672 0.0546875 0.998047 0.164062L4.08789 3.25391L7.17773 0.164062C7.28711 0.0546875 7.42383 0 7.58789 0C7.75195 0 7.88867 0.0546875 7.99805 0.164062C8.11654 0.282552 8.17578 0.423828 8.17578 0.587891C8.17578 0.742839 8.11654 0.875 7.99805 0.984375L4.49805 4.48438C4.38867 4.60286 4.25195 4.66211 4.08789 4.66211C3.92383 4.66211 3.78711 4.60286 3.67773 4.48438L0.177734 0.984375Z" fill="#555555"/>
+            </svg>
+          </a>
+        </li>
+        <li class="has-dropdown" style="width: 56px; height: 23px; color: #111111">
+          <a
+            href="#"
+            class="flex items-center gap-5 font-medium text-base"
+          >
+            Shop
+            <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.177734 0.984375C0.0592448 0.875 0 0.742839 0 0.587891C0 0.423828 0.0592448 0.282552 0.177734 0.164062C0.287109 0.0546875 0.423828 0 0.587891 0C0.751953 0 0.888672 0.0546875 0.998047 0.164062L4.08789 3.25391L7.17773 0.164062C7.28711 0.0546875 7.42383 0 7.58789 0C7.75195 0 7.88867 0.0546875 7.99805 0.164062C8.11654 0.282552 8.17578 0.423828 8.17578 0.587891C8.17578 0.742839 8.11654 0.875 7.99805 0.984375L4.49805 4.48438C4.38867 4.60286 4.25195 4.66211 4.08789 4.66211C3.92383 4.66211 3.78711 4.60286 3.67773 4.48438L0.177734 0.984375Z" fill="#555555"/>
+            </svg>
+          </a>
+        </li>
+        <li class="has-dropdown" style="width: 80px; height: 23px; color: #111111">
+          <a
+            href="#"
+            class="flex items-center gap-5 font-medium text-base"
+          >
+            Products
+            <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.177734 0.984375C0.0592448 0.875 0 0.742839 0 0.587891C0 0.423828 0.0592448 0.282552 0.177734 0.164062C0.287109 0.0546875 0.423828 0 0.587891 0C0.751953 0 0.888672 0.0546875 0.998047 0.164062L4.08789 3.25391L7.17773 0.164062C7.28711 0.0546875 7.42383 0 7.58789 0C7.75195 0 7.88867 0.0546875 7.99805 0.164062C8.11654 0.282552 8.17578 0.423828 8.17578 0.587891C8.17578 0.742839 8.11654 0.875 7.99805 0.984375L4.49805 4.48438C4.38867 4.60286 4.25195 4.66211 4.08789 4.66211C3.92383 4.66211 3.78711 4.60286 3.67773 4.48438L0.177734 0.984375Z" fill="#555555"/>
+            </svg>
+          </a>
+        </li>
+        <li class="has-dropdown" style="width: 61px; height: 23px; color: #111111">
+          <a
+            href="#"
+            class="flex items-center gap-5 font-medium text-base"
+          >
+            Pages
+            <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.177734 0.984375C0.0592448 0.875 0 0.742839 0 0.587891C0 0.423828 0.0592448 0.282552 0.177734 0.164062C0.287109 0.0546875 0.423828 0 0.587891 0C0.751953 0 0.888672 0.0546875 0.998047 0.164062L4.08789 3.25391L7.17773 0.164062C7.28711 0.0546875 7.42383 0 7.58789 0C7.75195 0 7.88867 0.0546875 7.99805 0.164062C8.11654 0.282552 8.17578 0.423828 8.17578 0.587891C8.17578 0.742839 8.11654 0.875 7.99805 0.984375L4.49805 4.48438C4.38867 4.60286 4.25195 4.66211 4.08789 4.66211C3.92383 4.66211 3.78711 4.60286 3.67773 4.48438L0.177734 0.984375Z" fill="#555555"/>
+            </svg>
+          </a>
+        </li>
+        <li style="width: 51px; height: 23px; color: #111111">
+          <a
+            href="#"
+            class="flex items-center gap-5 font-medium text-base"
+          >
+            Blog
+            <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.177734 0.984375C0.0592448 0.875 0 0.742839 0 0.587891C0 0.423828 0.0592448 0.282552 0.177734 0.164062C0.287109 0.0546875 0.423828 0 0.587891 0C0.751953 0 0.888672 0.0546875 0.998047 0.164062L4.08789 3.25391L7.17773 0.164062C7.28711 0.0546875 7.42383 0 7.58789 0C7.75195 0 7.88867 0.0546875 7.99805 0.164062C8.11654 0.282552 8.17578 0.423828 8.17578 0.587891C8.17578 0.742839 8.11654 0.875 7.99805 0.984375L4.49805 4.48438C4.38867 4.60286 4.25195 4.66211 4.08789 4.66211C3.92383 4.66211 3.78711 4.60286 3.67773 4.48438L0.177734 0.984375Z" fill="#555555"/>
+            </svg>
+          </a>
+        </li>
+        <li style="width: 30px; height: 23px; color: #111111"><a href="#" class="font-medium text-base">Sale</a></li>
+        <li style="width: 82px; height: 23px; color: #111111">
+          <a href="#" class="font-medium text-base">Buy Umino!</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-icons flex items-center gap-20 justify-end">
+      <a href="{{ routes.search_url }}" class="header-icon-item" aria-label="Search">
+        <img width="17" height="17" src="{{ 'search.svg' | asset_url }}" alt="" class="svg-icon" loading="lazy">
+      </a>
+      <a href="{{ routes.account_url }}" class="header-icon-item desktop-only" aria-label="Account">
+        <img width="17" height="17" src="{{ 'login.svg' | asset_url }}" alt="" class="svg-icon" loading="lazy">
+      </a>
+      <a href="/apps/order-tracking" class="header-icon-item desktop-only" aria-label="Order Tracking">
+        <img width="17" height="17" src="{{ 'clock.svg' | asset_url }}" alt="" class="svg-icon" loading="lazy">
+      </a>
+      <a href="/pages/wishlist" class="header-icon-item desktop-only" aria-label="Wishlist">
+        <img width="20" height="17" src="{{ 'heart.svg' | asset_url }}" alt="" class="svg-icon" loading="lazy">
+        <span class="icon-badge">0</span>
+      </a>
+      <a href="{{ routes.cart_url }}" class="header-icon-item" id="header-cart-icon" aria-label="Shopping Cart">
+        <img width="20" height="17" src="{{ 'cart.svg' | asset_url }}" alt="" class="svg-icon" loading="lazy">
+        <span class="icon-badge" id="cart-badge-header">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div
+    id="MobileMenuWrapper"
+    class="mobile-menu-wrapper fixed top-0 left-0 w-300 h-full bg-white z-100 shadow-lg p-30 transition-all duration-300"
+  >
+    <div class="mobile-menu-header flex justify-between items-center mb-30">
+      <h3 class="text-lg font-semibold uppercase">Menu</h3>
+      <button id="MobileMenuClose" class="text-dark p-5">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.8333 4.16667L4.16666 15.8333M4.16666 4.16667L15.8333 15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <ul class="flex flex-col gap-20">
+        <li><a href="{{ routes.root_url }}" class="text-base font-medium uppercase">Home</a></li>
+        <li><a href="#" class="text-base font-medium uppercase">Shop</a></li>
+        <li><a href="#" class="text-base font-medium uppercase">Products</a></li>
+        <li><a href="#" class="text-base font-medium uppercase">Pages</a></li>
+        <li><a href="#" class="text-base font-medium uppercase">Blog</a></li>
+        <li><a href="#" class="text-base font-medium uppercase">Sale</a></li>
+        <li><a href="#" class="text-base font-medium uppercase">Buy Umino!</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu-footer mt-50">
+      {% render 'social-icons' %}
+    </div>
+  </div>
+  <div
+    id="MobileMenuOverlay"
+    class="mobile-menu-overlay fixed top-0 left-0 w-full h-full bg-black opacity-50 z-99 hidden"
+  ></div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

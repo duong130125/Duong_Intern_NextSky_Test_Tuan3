@@ -1,0 +1,183 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Umino Dawn",
+    "theme_version": "1.0.0",
+    "theme_author": "Duong NextSky",
+    "theme_documentation_url": "https://github.com/duong130125/Duong_Intern_NextSky_Test_Tuan3",
+    "theme_support_url": "https://github.com/duong130125/Duong_Intern_NextSky_Test_Tuan3/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary text color",
+        "default": "#555555"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent color",
+        "default": "#D73F0F"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border color",
+        "default": "#EBEBEB"
+      },
+      {
+        "type": "color",
+        "id": "color_badge_sale",
+        "label": "Sale badge color",
+        "default": "#D73F0F"
+      },
+      {
+        "type": "color",
+        "id": "color_badge_preorder",
+        "label": "Pre-order badge color",
+        "default": "#177983"
+      },
+      {
+        "type": "color",
+        "id": "color_badge_soldout",
+        "label": "Sold out badge color",
+        "default": "#757575"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading font",
+        "default": "jost_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body font",
+        "default": "jost_n4"
+      },
+      {
+        "type": "range",
+        "id": "font_size_base",
+        "label": "Base font size",
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "default": 16,
+        "unit": "px"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "container_width",
+        "label": "Container max width",
+        "min": 1200,
+        "max": 1600,
+        "step": 10,
+        "default": 1410,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "container_padding",
+        "label": "Container padding (mobile)",
+        "min": 10,
+        "max": 40,
+        "step": 5,
+        "default": 20,
+        "unit": "px"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+        "default": "https://instagram.com/umino"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL",
+        "default": "https://tiktok.com/@umino"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL",
+        "default": "https://youtube.com/@umino"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter URL",
+        "default": "https://twitter.com/umino"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook URL",
+        "default": "https://facebook.com/umino"
+      }
+    ]
+  },
+  {
+    "name": "Store information",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_address",
+        "label": "Store address",
+        "default": "268 St, South New York/NY 98944, United States"
+      },
+      {
+        "type": "text",
+        "id": "store_phone",
+        "label": "Store phone",
+        "default": "+222-1800-2628"
+      },
+      {
+        "type": "text",
+        "id": "store_email",
+        "label": "Store email",
+        "default": "blueskytechcompany@gmail.com"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  }
+]

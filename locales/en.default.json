@@ -1,0 +1,94 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "open_menu": "Open menu",
+      "previous_slide": "Previous slide",
+      "next_slide": "Next slide",
+      "scroll_to_top": "Scroll to top"
+    },
+    "search": {
+      "label": "Search",
+      "placeholder": "Search our store..."
+    },
+    "cart": {
+      "title": "Shopping Cart",
+      "empty": "Your cart is empty",
+      "add_to_cart": "Add To Cart",
+      "view_cart": "View Cart",
+      "checkout": "Checkout",
+      "subtotal": "Subtotal",
+      "remove": "Remove",
+      "quantity": "Quantity"
+    },
+    "newsletter": {
+      "title": "Sign Up To Newsletter",
+      "description": "Enter your email address to get $10 off your first order and free shipping. Updates information on Sales and Offers.",
+      "placeholder": "Enter your email...",
+      "subscribe": "SUBSCRIBE",
+      "success": "Thank you for subscribing!",
+      "error": "Please enter a valid email address."
+    },
+    "social": {
+      "follow_on_shop": "Follow on"
+    },
+    "404": {
+      "title": "404 Page Not Found",
+      "subtext": "The page you requested does not exist.",
+      "continue_shopping": "Continue shopping"
+    }
+  },
+  "sections": {
+    "header": {
+      "menu": "Menu",
+      "cart": "Cart",
+      "account": "Account",
+      "search": "Search",
+      "wishlist": "Wishlist",
+      "order_tracking": "Order Tracking"
+    },
+    "hero": {
+      "explore_now": "EXPLORE NOW"
+    },
+    "featured_collections": {
+      "title": "Featured Collections",
+      "subtitle": "Elevate your style with our chic featured collection—where fashion meets flair effortlessly."
+    },
+    "new_arrivals": {
+      "title": "New Arrivals",
+      "subtitle": "Here's some of our most popular products people are in love with."
+    },
+    "testimonials": {
+      "title": "What Customers Say",
+      "subtitle": "Our happy customers share their experiences with our products."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thank you for your message. We'll get back to you shortly.",
+      "error": "Sorry, there was an error sending your message. Please try again."
+    },
+    "footer": {
+      "hot_categories": "Hot Categories",
+      "customer_service": "Customer Service",
+      "copyright": "© {{ year }} Umino Store. All Rights Reserved."
+    }
+  },
+  "products": {
+    "product": {
+      "sold_out": "Sold Out",
+      "pre_order": "Pre-Order",
+      "sale": "Sale",
+      "add_to_cart": "Add To Cart",
+      "quick_view": "Quick View",
+      "wishlist": "Add to Wishlist"
+    }
+  }
+}

@@ -1,0 +1,175 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ request.locale.direction | default: 'ltr' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    {%- assign seo_title = page_title | default: shop.name -%}
+    {%- if current_page != 1 -%}
+      {%- assign seo_title = seo_title
+        | append: ' – '
+        | append: 'general.accessibility.page'
+        | t: page: current_page
+      -%}
+    {%- endif -%}
+    {%- unless page_title == blank -%}
+      {%- assign seo_title = page_title | append: ' – ' | append: shop.name -%}
+    {%- endunless -%}
+
+    <title>{{ seo_title }}</title>
+
+    {%- assign seo_description = page_description | default: shop.description -%}
+    {%- if seo_description != blank -%}
+      <meta name="description" content="{{ seo_description | escape }}">
+    {%- else -%}
+      <meta
+        name="description"
+        content="{{ shop.name }} – Premium fashion store with top trending styles, new arrivals, and exclusive collections."
+      >
+    {%- endif -%}
+
+    <meta name="robots" content="index, follow">
+
+    {%- comment -%} Open Graph / Facebook {%- endcomment -%}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ shop.name }}">
+    <meta property="og:title" content="{{ seo_title | escape }}">
+    <meta property="og:description" content="{{ seo_description | default: shop.description | escape }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    {%- if settings.og_image != blank -%}
+      <meta property="og:image" content="{{ settings.og_image | image_url: width: 1200 }}">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="628">
+    {%- elsif page.image -%}
+      <meta property="og:image" content="{{ page.image | image_url: width: 1200 }}">
+    {%- endif -%}
+
+    {%- comment -%} Twitter Card {%- endcomment -%}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ seo_title | escape }}">
+    <meta name="twitter:description" content="{{ seo_description | default: shop.description | escape }}">
+
+    {%- comment -%} Favicon {%- endcomment -%}
+    {%- if settings.favicon -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180, height: 180 }}">
+    {%- endif -%}
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- comment -%} Preload critical resources {%- endcomment -%}
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+
+    {%- comment -%} Font preload {%- endcomment -%}
+    <style>
+      {{ settings.font_heading | font_face: font_display: 'swap' }}
+      {{ settings.font_body | font_face: font_display: 'swap' }}
+    </style>
+
+    {%- comment -%} CSS Loading {%- endcomment -%}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'component-product-card.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    {%- comment -%} Shopify required header content {%- endcomment -%}
+    {{ content_for_header }}
+
+    {%- comment -%} Structured Data: Organization {%- endcomment -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": {{ shop.name | json }},
+        "url": {{ shop.url | json }},
+        "logo": {{ 'Logo.svg' | asset_url | json }},
+        "description": {{ shop.description | json }},
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": {{ settings.store_phone | json }},
+          "contactType": "customer service"
+        },
+        "sameAs": [
+          {{ settings.social_instagram | json }},
+          {{ settings.social_facebook | json }},
+          {{ settings.social_twitter | json }},
+          {{ settings.social_youtube | json }},
+          {{ settings.social_tiktok | json }}
+        ]
+      }
+    </script>
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+  </head>
+
+  <body class="template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
+    <a class="skip-to-content" href="#MainContent">
+      {{ 'general.accessibility.skip_to_content' | t }}
+    </a>
+
+    {%- section 'header' -%}
+
+    <main id="MainContent" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {%- section 'footer' -%}
+
+    {%- comment -%} Floating Actions (Mobile) {%- endcomment -%}
+    <nav class="mobile-bottom-nav mobile-only">
+      <a href="{{ routes.root_url }}" class="nav-item active">
+        <div class="nav-icon-wrap">
+          <img width="17" height="17" src="{{ 'home.svg' | asset_url }}" alt="Home" class="nav-icon" loading="lazy">
+        </div>
+        <span>Home</span>
+      </a>
+      <a href="{{ routes.all_products_collection_url }}" class="nav-item">
+        <div class="nav-icon-wrap">
+          <img width="17" height="17" src="{{ 'shop.svg' | asset_url }}" alt="Shop" class="nav-icon" loading="lazy">
+        </div>
+        <span>Shop</span>
+      </a>
+      <a href="{{ routes.account_url }}" class="nav-item">
+        <div class="nav-icon-wrap">
+          <img width="17" height="17" src="{{ 'login.svg' | asset_url }}" alt="Account" class="nav-icon" loading="lazy">
+        </div>
+        <span>Account</span>
+      </a>
+      <a href="/pages/wishlist" class="nav-item">
+        <div class="nav-icon-wrap">
+          <img
+            width="20"
+            height="17"
+            src="{{ 'heart.svg' | asset_url }}"
+            alt="Wishlist"
+            class="nav-icon"
+            loading="lazy"
+          >
+          <span class="icon-badge">0</span>
+        </div>
+        <span>Wishlist</span>
+      </a>
+      <a href="{{ routes.cart_url }}" class="nav-item">
+        <div class="nav-icon-wrap">
+          <img width="20" height="17" src="{{ 'bag.svg' | asset_url }}" alt="Cart" class="nav-icon" loading="lazy">
+          <span class="icon-badge" id="cart-badge-mobile">{{ cart.item_count }}</span>
+        </div>
+        <span>Cart</span>
+      </a>
+    </nav>
+
+    <div class="mobile-floating-actions">
+      <button id="scrollToBtn" class="floating-btn btn-scroll-top" aria-label="Scroll to top/bottom">
+        <img src="{{ 'arrow.svg' | asset_url }}" alt="" class="icon-arrow" width="16" height="16" loading="lazy">
+      </button>
+      <button class="floating-btn btn-chat" aria-label="Chat with us">
+        <img src="{{ 'message.svg' | asset_url }}" alt="" width="22" height="22" loading="lazy">
+      </button>
+    </div>
+
+    {%- comment -%} Theme JS - deferred {%- endcomment -%}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </body>
+</html>
