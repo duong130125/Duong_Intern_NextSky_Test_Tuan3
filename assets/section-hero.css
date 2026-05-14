@@ -1,6 +1,6 @@
 /* === Hero Slider Styles === */
 .hero-slider-fw {
-  height: 450px;
+  height: 550px;
   width: 100%;
 }
 
@@ -20,6 +20,7 @@
     font-size: 40px;
     line-height: 45px;
     margin-bottom: 0;
+    color: var(--color-dark);
   }
 
   .hero-subtitle {
@@ -29,17 +30,19 @@
   }
 
   .btn-explore {
-    width: 180px !important;
-    height: 50px !important;
-    border-radius: 30px !important;
-    padding: 10px !important;
-    gap: 10px !important;
-    font-size: 14px !important;
-    margin-top: 10px !important;
+    width: 180px;
+    height: 50px;
+    padding: 20px;
+    font-family: 'Jost', 'sans-serif';
+    margin-top: 30px;
   }
 
   .hero-arrow {
     display: none !important;
+  }
+
+  .hero-dots {
+    bottom: 20px !important;
   }
 }
 
@@ -47,11 +50,9 @@
   .hero-slider-fw {
     height: 550px;
   }
-}
-
-@media (min-width: 1024px) {
-  .hero-slider-fw {
-    height: 810px;
+  
+  .hero-title {
+    font-size: 45px;
   }
 }
 
@@ -65,7 +66,17 @@
   padding-top: 100px; /* Default for mobile */
 }
 
+@media (min-width: 1920px) {
+  .hero-content {
+    left: 353px;
+  }
+}
+
 @media (min-width: 1024px) {
+  .hero-slider-fw {
+    height: 810px;
+  }
+  
   .hero-container {
     position: static;
     padding-top: 0;
@@ -78,46 +89,17 @@
     left: 18.38vw; /* responsive 353px / 1920px */
     margin: 0;
   }
-}
-@media (min-width: 1920px) {
-  .hero-content {
-    left: 353px;
-  }
-}
 
-.hero-pretitle {
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-dark);
-}
-
-.hero-title {
-  font-size: 32px;
-  line-height: 1;
-  color: var(--color-dark);
-}
-
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 45px;
-  }
-}
-
-@media (min-width: 1024px) {
   .hero-title {
     font-size: 80px;
   }
-}
 
-.hero-subtitle {
-  font-size: 14px;
-}
-
-@media (min-width: 1024px) {
   .hero-subtitle {
     font-size: 16px;
+  }
+
+  .hero-dots {
+    bottom: 30px !important;
   }
 }
 
@@ -164,7 +146,6 @@
 
 /* === Dots Positioning === */
 .hero-dots {
-  bottom: 30px !important;
   display: flex;
   justify-content: center;
   gap: 10px;

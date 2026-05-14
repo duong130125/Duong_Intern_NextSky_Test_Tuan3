@@ -34,6 +34,26 @@
   min-height: 730px;
 }
 
+@media (max-width: 767px) {
+  .fc-container {
+    padding: 0 20px;
+  }
+  .lgd\:grid-fc-tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: clamp(144px, auto, 185px);
+    grid-template-areas:
+      "clothing bags"
+      "clothing sneaker"
+      "sunglasses sneaker";
+  }
+
+  
+  .fc-card img {
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
 @media (max-width: 1023px) {
   .lgd\:grid-fc-tablet {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -2,11 +2,10 @@
   "sections": {
     "main": {
       "type": "main-404",
-      "settings": {
-        "title": "404 Not Found",
-        "text": "The page you are looking for does not exist."
-      }
+      "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
