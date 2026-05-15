@@ -69,7 +69,7 @@
     {%- comment -%} CSS Loading {%- endcomment -%}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'component-product-card.css' | asset_url | stylesheet_tag }}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
     {%- comment -%} Shopify required header content {%- endcomment -%}
     {{ content_for_header }}
@@ -122,19 +122,19 @@
         <div class="nav-icon-wrap">
           <img width="17" height="17" src="{{ 'home.svg' | asset_url }}" alt="Home" class="nav-icon" loading="lazy">
         </div>
-        <span>Home</span>
+        <span class="h-8 text-xs">Home</span>
       </a>
       <a href="{{ routes.all_products_collection_url }}" class="nav-item">
         <div class="nav-icon-wrap">
           <img width="17" height="17" src="{{ 'shop.svg' | asset_url }}" alt="Shop" class="nav-icon" loading="lazy">
         </div>
-        <span>Shop</span>
+        <span class="h-8 text-xs">Shop</span>
       </a>
       <a href="{{ routes.account_url }}" class="nav-item">
         <div class="nav-icon-wrap">
           <img width="17" height="17" src="{{ 'login.svg' | asset_url }}" alt="Account" class="nav-icon" loading="lazy">
         </div>
-        <span>Account</span>
+        <span class="h-8 text-xs">Account</span>
       </a>
       <a href="/pages/wishlist" class="nav-item">
         <div class="nav-icon-wrap">
@@ -146,16 +146,16 @@
             class="nav-icon"
             loading="lazy"
           >
-          <span class="icon-badge">0</span>
+          <span class="icon-badge">2</span>
         </div>
-        <span>Wishlist</span>
+        <span class="h-8 text-xs">Wishlist</span>
       </a>
       <a href="{{ routes.cart_url }}" class="nav-item">
         <div class="nav-icon-wrap">
-          <img width="20" height="17" src="{{ 'bag.svg' | asset_url }}" alt="Cart" class="nav-icon" loading="lazy">
+          <img width="20" height="17" src="{{ 'cart.svg' | asset_url }}" alt="Cart" class="nav-icon" loading="lazy">
           <span class="icon-badge" id="cart-badge-mobile">{{ cart.item_count }}</span>
         </div>
-        <span>Cart</span>
+        <span class="h-8 text-xs">Cart</span>
       </a>
     </nav>
 
@@ -169,7 +169,7 @@
     </div>
 
     {%- comment -%} Theme JS - deferred {%- endcomment -%}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
   </body>
 </html>

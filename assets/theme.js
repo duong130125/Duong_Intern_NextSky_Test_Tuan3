@@ -125,7 +125,7 @@ class UminoTheme {
     if (arrivalsSlider) {
       new Swiper(arrivalsSlider, {
         slidesPerView: 2,
-        spaceBetween: 10,
+        spaceBetween: 20,
         navigation: {
           nextEl: ".new-arrivals-next",
           prevEl: ".new-arrivals-prev",

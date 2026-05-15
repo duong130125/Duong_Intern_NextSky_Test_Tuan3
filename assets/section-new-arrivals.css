@@ -5,6 +5,15 @@
 
 .new-arrivals .product-card {
   width: 100%;
+  gap: 16px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* "T-shirt" suffix: hidden on desktop, inline on mobile */
+.title-mobile-suffix {
+  display: none;
 }
 
 .right-container {
@@ -44,4 +53,215 @@
 .new-arrivals-next:hover {
   background-color: var(--color-dark) !important;
   color: var(--color-white) !important;
+}
+
+/* ============================
+   MOBILE STYLES (max-width: 767px)
+   ============================ */
+@media (max-width: 767px) {
+  .fc-container{
+    width: min(390px, 100%);
+    max-width: 390px;
+    min-height: 553px;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  /* --- Section container --- */
+  .new-arrivals .container {
+    width: min(390px, 100%);
+    max-width: 390px;
+    padding: 0 0;
+    margin: 0 auto;
+  }
+
+  /* --- Header area (title + subtitle) --- */
+  .new-arrivals .fc-header {
+    gap: 15px;
+  }
+
+  /* --- Navigation arrows container --- */
+  .new-arrivals .slider-nav-container {
+    display: flex !important;
+    position: relative !important;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 40px;
+    gap: 10px;
+    margin: 0 auto;
+  }
+
+  .new-arrivals-prev,
+  .new-arrivals-next {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #EBEBEB !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    transform: none !important;
+  }
+
+  .new-arrivals-prev::after,
+  .new-arrivals-next::after {
+    font-size: 10px !important;
+    line-height: 40px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- Slider (keep Swiper functional!) --- */
+  .new-arrivals-slider {
+    width: 100%;
+    max-width: 390px;
+    overflow: hidden !important;
+  }
+
+  /* DO NOT override swiper-wrapper to grid - let Swiper control the layout */
+  .new-arrivals-slider .swiper-wrapper {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .new-arrivals-slider .swiper-slide {
+    width: calc((390px - 20px) / 2) !important;
+    flex-shrink: 0;
+  }
+
+  /* --- Product card sizing --- */
+  .new-arrivals .product-card {
+    width: 100%;
+    max-width: 185px;
+    gap: 16px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .new-arrivals .product-card .product-image-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto !important;
+    max-height: none;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .new-arrivals .product-card .product-image-wrap img {
+    object-fit: cover;
+    display: block;
+  }
+
+  /* --- Product info area --- */
+  .new-arrivals .product-info {
+    width: 100%;
+    max-height: 125px;
+    gap: 8px;
+    height: auto;
+  }
+
+  .new-arrivals .product-info > * {
+    margin-bottom: 0 !important;
+  }
+
+  .new-arrivals .product-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .title-mobile-suffix {
+    display: inline;
+    margin-top: 2px;
+  }
+
+  .new-arrivals .product-rating {
+    margin-bottom: 4px;
+  }
+
+  .new-arrivals .product-rating svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .new-arrivals .product-price {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .new-arrivals .price-sale {
+    font-size: 14px;
+  }
+
+  .new-arrivals .price-original {
+    font-size: 14px;
+  }
+
+  .new-arrivals .product-colors {
+    gap: 5px;
+  }
+
+  .new-arrivals .color-swatch {
+    width: 24px;
+    height: 24px;
+  }
+
+  .new-arrivals .color-swatch-inner {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* --- Action icons: always visible on mobile --- */
+  .new-arrivals .product-action-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    opacity: 1 !important;
+    transform: none !important;
+    z-index: 5;
+  }
+
+  .new-arrivals .action-icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .new-arrivals .action-icon-btn img {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* --- Badges positioning on mobile --- */
+  .new-arrivals .product-badges {
+    top: 10px;
+    padding: 0 10px;
+  }
+
+  .new-arrivals .badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  /* --- Sale bar at bottom of image --- */
+  .new-arrivals .product-sale-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 0;
+    font-size: 10px;
+    border-radius: 0 0 10px 10px;
+  }
 }

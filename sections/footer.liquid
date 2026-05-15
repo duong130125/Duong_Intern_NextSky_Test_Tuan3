@@ -2,7 +2,7 @@
 
 <footer class="footer bg-white pt-100 pb-0">
   <div class="container">
-    <div class="footer-top grid grid-cols-footer gap-40 mb-70 lgd:grid-cols-1 lgd:gap-20 lgd:mb-30 sm:grid-cols-1">
+    <div class="footer-top grid grid-cols-footer gap-40 mb-90 lgd:grid-cols-1 lgd:gap-20 lgd:mb-30 sm:grid-cols-1">
       <div class="footer-col footer-logo-col">
         {%- if section.settings.logo != blank -%}
           {{
@@ -37,7 +37,7 @@
           {% render 'social-icons' %}
         </div>
 
-        <div class="follow-shop flex items-center gap-10 mt-25">
+        <div class="follow-shop flex items-center gap-10 mt-25 desktop-only">
           <div class="icon-wrap w-36 h-36 bg-primary-blue rounded-full flex justify-center items-center text-white">
             <img width="36" height="36" src="{{ 'icon.svg' | asset_url }}" alt="" loading="lazy">
           </div>
@@ -67,7 +67,7 @@
             <li class="mb-14"><a href="#" class="text-muted text-base">T-shirts</a></li>
             <li class="mb-14"><a href="#" class="text-muted text-base">Underwear</a></li>
             <li class="mb-14"><a href="#" class="text-muted text-base">Top Brands</a></li>
-            <li class="mb-14"><a href="#" class="text-muted text-base">Online Exclusive</a></li>
+            <li><a href="#" class="text-muted text-base">Online Exclusive</a></li>
           {%- endif -%}
         </ul>
       </div>
@@ -90,7 +90,7 @@
             <li class="mb-14"><a href="#" class="text-muted text-base">Term & Conditions</a></li>
             <li class="mb-14"><a href="#" class="text-muted text-base">Advanced Search</a></li>
             <li class="mb-14"><a href="#" class="text-muted text-base">Theme FAQs</a></li>
-            <li class="mb-14"><a href="#" class="text-muted text-base">Store Locations</a></li>
+            <li><a href="#" class="text-muted text-base">Store Locations</a></li>
           {%- endif -%}
         </ul>
       </div>
@@ -98,7 +98,7 @@
       <div class="footer-col accordion active">
         <h3 class="footer-title text-sm font-semibold uppercase pt-8 mb-25">SIGN UP TO NEWSLETTER</h3>
         <div class="footer-links">
-          <p class="footer-newsletter-desc text-muted text-base leading-7 mb-25">
+          <p class="footer-newsletter-desc text-muted text-base mb-25">
             Enter your email address to get $10 off your first order and free shipping. Updates information on Sales and
             Offers.
           </p>
@@ -119,7 +119,7 @@
       </div>
     </div>
 
-    <div class="footer-bottom border-top py-35 flex justify-between items-center text-muted sm:flex-col sm:gap-15 sm:text-center">
+    <div class="border-top py-35 flex justify-between items-center text-muted sm:flex-col sm:gap-15 sm:text-center">
       <div class="footer-selectors flex gap-20 text-base">
         <a
           href="#"

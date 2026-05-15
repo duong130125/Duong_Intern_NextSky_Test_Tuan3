@@ -147,7 +147,6 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 30px;
   font-family: var(--font-body-family);
   font-weight: 500;
   font-size: 15px;
@@ -253,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
   aspect-ratio: 3 / 4;
 }
 
@@ -481,6 +480,7 @@ h1, h2, h3, h4, h5, h6 {
 .sale-marquee {
   display: flex;
   width: max-content;
+  height: 22px;
   animation: marquee 5s linear infinite;
   will-change: transform;
 }
@@ -604,6 +604,7 @@ h1, h2, h3, h4, h5, h6 {
 .mb-40 { margin-bottom: 40px; }
 .mb-50 { margin-bottom: 50px; }
 .mb-70 { margin-bottom: 70px; }
+.mb-90 { margin-bottom: 90px; }
 .mt-5 { margin-top: 5px; }
 .mt-25 { margin-top: 25px; }
 .mt-30 { margin-top: 30px; }
@@ -627,7 +628,7 @@ h1, h2, h3, h4, h5, h6 {
 .gap-5 { gap: 5px; }
 
 @media (max-width: 767px) {
-  .sm\:py-60 { padding-top: 60px; padding-bottom: 60px; }
+  .sm\:pt-60 { padding-top: 60px}
   .sm\:mb-15 { margin-bottom: 15px; }
   .sm\:flex-col { flex-direction: column; }
   .sm\:gap-15 { gap: 15px; }
@@ -689,6 +690,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .w-full { width: 100%; }
 .h-full { height: 100%; }
+.h-8 { height: 8px; }
 .h-11 {height: 11px}
 .h-73 { height: 73px; }
 .h-70 { height: 70px; }
@@ -701,6 +703,8 @@ h1, h2, h3, h4, h5, h6 {
 .w-200 { width: 200px; }
 .w-100 { width: 100px; }
 .w-60 { width: 60px; }
+.min-w-100 { min-width: 100px; }
+.min-w-120 { min-width: 120px; }
 .min-w-160 { min-width: 160px; }
 .max-w-1200 { max-width: 1200px; }
 .max-w-1410 { max-width: 1410px; }
@@ -726,12 +730,12 @@ h1, h2, h3, h4, h5, h6 {
 /* === Floating Actions (Mobile) === */
 .mobile-floating-actions {
   position: fixed;
-  bottom: 80px;
+  bottom: 85px;
   right: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   z-index: 100;
 }
 
@@ -1026,6 +1030,8 @@ h1, h2, h3, h4, h5, h6 {
   .sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
   .sm\:h-550 { height: 550px; }
   .sm\:w-180 { width: 180px; }
+  .sm\:w-120 { width: 120px; }
+  .sm\:w-200 { width: 200px; }
   .sm\:h-50 { height: 50px; }
   .sm\:text-left { text-align: left; }
   .sm\:bottom-25 { bottom: 25px; }

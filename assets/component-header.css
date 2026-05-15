@@ -49,23 +49,69 @@
 
 /* === Mobile Bottom Nav === */
 .mobile-bottom-nav {
-  height: 75px;
+  position: relative;
+  width: min(430px, 100%);
+  box-sizing: border-box;
+  margin: 0 auto;
+  background: var(--color-white);
   box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-  padding: 10px 10px 25px;
+  padding: 15px 21px 30px;
+  opacity: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
+.mobile-bottom-nav::before {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  width: 150.7px;
+  height: 3px;
+  background: #999999;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+
 .mobile-bottom-nav .nav-item {
-  color: var(--color-text-muted);
-  position: relative;
+  display: flex;
+  width: 77px;
+  height: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  gap: 5px;
 }
 
 .mobile-bottom-nav .nav-item.active {
   color: var(--color-dark);
 }
 
+.mobile-bottom-nav .nav-icon-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-bottom-nav .nav-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .mobile-bottom-nav .icon-badge {
-  top: 5px;
-  right: 15px;
+  top: -4px;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  color: var(--color-white);
 }
 
 /* === Mobile Drawer === */
