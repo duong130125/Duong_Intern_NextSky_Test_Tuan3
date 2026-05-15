@@ -1,0 +1,225 @@
+{{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
+
+<section class="testimonials py-100 sm:py-60">
+  <div class="container">
+    <div class="testimonials-header mx-auto mb-80 sm:mb-50">
+      {%- if section.settings.title != blank -%}
+        <h2 class="section-title h-32 text-center">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle h-11 text-center">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="testimonials-wrapper">
+      <div
+        class="testimonials-slider swiper"
+        id="TestimonialsSlider-{{ section.id }}"
+      >
+        <div class="swiper-wrapper testimonials-grid">
+          {%- for block in section.blocks -%}
+            <div class="swiper-slide testimonial-slide">
+              <div class="testimonial-card bg-white border rounded-lg p-30 flex flex-col h-full sm:p-20">
+                <div class="testimonial-body flex-1 mb-25">
+                  <div class="rating-stars flex gap-3 mb-15">
+                    {%- for i in (1..5) -%}
+                      {%- if i <= block.settings.rating -%}
+                        <svg class="w-15 h-15" viewBox="0 0 20 20" fill="#FFC107">
+                          <path d="M10 1l2.939 6.021h6.516l-5.27 3.829 2.004 6.15-5.189-3.777-5.189 3.777 2.004-6.15-5.27-3.829h6.516z"/>
+                        </svg>
+                      {%- else -%}
+                        <svg class="w-15 h-15" viewBox="0 0 20 20" fill="#E0E0E0">
+                          <path d="M10 1l2.939 6.021h6.516l-5.27 3.829 2.004 6.15-5.189-3.777-5.189 3.777 2.004-6.15-5.27-3.829h6.516z"/>
+                        </svg>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                  <p class="testimonial-text text-base text-dark leading-relaxed">
+                    "{{ block.settings.testimonial_text }}"
+                  </p>
+                </div>
+
+                <div class="testimonial-footer">
+                  <h4 class="author-name font-semibold text-base mb-3">{{ block.settings.author_name }}</h4>
+                  <p class="author-role text-muted text-sm">{{ block.settings.author_role }}</p>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if section.settings.show_nav -%}
+        <button class="testimonials-prev swiper-button-prev absolute sm:hidden" aria-label="Previous Testimonial">
+          <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 1L1 5.5L6.5 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="testimonials-next swiper-button-next absolute sm:hidden" aria-label="Next Testimonial">
+          <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 1L6 5.5L0.5 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_dots -%}
+      <div class="testimonials-dots swiper-pagination flex justify-center mt-50 gap-10"></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sectionId = '{{ section.id }}';
+    const sliderId = `TestimonialsSlider-${sectionId}`;
+    const slider = document.getElementById(sliderId);
+
+    if (!slider) return;
+
+    new Swiper(`#${sliderId}`, {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: {{ section.settings.loop | default: true }},
+      autoplay: {
+        delay: {{ section.settings.autoplay_delay | default: 5000 }},
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.testimonials-dots',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.testimonials-next',
+        prevEl: '.testimonials-prev'
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Real reviews from real customers who love our products."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_nav",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show pagination dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 2000,
+      "max": 10000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Autoplay delay",
+      "default": 5000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Testimonial Text",
+          "default": "This product exceeded my expectations. Highly recommended!"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Jane Doe"
+        },
+        {
+          "type": "text",
+          "id": "author_role",
+          "label": "Author Role/Title",
+          "default": "Verified Customer"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "The quality is amazing and delivery was super fast!",
+            "author_name": "Sarah Johnson",
+            "author_role": "Fashion Designer",
+            "rating": 5
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "Best purchase ever. Will definitely buy again!",
+            "author_name": "Michael Chen",
+            "author_role": "Business Owner",
+            "rating": 5
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "Great value for money. Highly satisfied with my order.",
+            "author_name": "Emma Wilson",
+            "author_role": "Lifestyle Blogger",
+            "rating": 5
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

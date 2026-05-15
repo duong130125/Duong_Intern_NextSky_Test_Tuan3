@@ -47,6 +47,18 @@
   display: block;
 }
 
+@media (min-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-nav {
+    display: block;
+  }
+}
+
 /* === Mobile Bottom Nav === */
 .mobile-bottom-nav {
   position: relative;
