@@ -111,7 +111,7 @@
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 0;
 }
 
 .swiper-pagination-bullet {
@@ -122,20 +122,16 @@
   opacity: 1;
   cursor: pointer;
   position: relative;
-}
-
-.swiper-pagination-bullet::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
+  border: 8px solid transparent;
+  background-clip: padding-box;
+  box-sizing: content-box;
+  margin: 0 !important;
 }
 
 .swiper-pagination-bullet-active {
   background: var(--color-dark);
+  border: 8px solid transparent;
+  background-clip: padding-box;
 }
 
 /* === Tablet Styles (768px - 1023px) === */
@@ -225,11 +221,6 @@
 
   .testimonials-dots {
     margin-top: 30px;
-  }
-
-  .swiper-pagination-bullet {
-    width: 6px;
-    height: 6px;
   }
 }
 
