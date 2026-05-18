@@ -97,34 +97,33 @@
     {%- endif -%}
 
     {%- comment -%} Mobile Sale Bar {%- endcomment -%}
-   {%- if product != blank -%}
-    {%- if product.compare_at_price > product.price
-        and product.compare_at_price > 0 -%}
+    {%- if product != blank -%}
+      {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
+        {% assign discount = product.compare_at_price
+          | minus: product.price
+          | times: 100.0
+          | divided_by: product.compare_at_price
+          | round
+        %}
 
-      {% assign discount = product.compare_at_price
-        | minus: product.price
-        | times: 100.0
-        | divided_by: product.compare_at_price
-        | round %}
+        {%- if forloop.index == 1 -%}
+          <div class="product-sale-bar mobile-only">
+            <div class="sale-marquee">
+              <span>
+                SALE {{ discount }}% OFF
+                <img src="{{ 'lightning.svg' | asset_url }}" alt="" width="8" height="12" loading="lazy">
+                HOT SALE
+              </span>
 
-      {%- if forloop.index == 1 -%}
-        <div class="product-sale-bar mobile-only">
-          <div class="sale-marquee">
-            <span>
-              SALE {{ discount }}% OFF
-              <img src="{{ 'lightning.svg' | asset_url }}" alt="" width="8" height="12" loading="lazy">
-              HOT SALE
-            </span>
-
-            <span>
-              SALE {{ discount }}% OFF
-              <img src="{{ 'lightning.svg' | asset_url }}" alt="" width="8" height="12" loading="lazy">
-              HOT SALE
-            </span>
+              <span>
+                SALE {{ discount }}% OFF
+                <img src="{{ 'lightning.svg' | asset_url }}" alt="" width="8" height="12" loading="lazy">
+                HOT SALE
+              </span>
+            </div>
           </div>
-        </div>
+        {%- endif -%}
       {%- endif -%}
-    {%- endif -%}
 
     {%- elsif dummy_index == 1 -%}
       <div class="product-sale-bar mobile-only">
