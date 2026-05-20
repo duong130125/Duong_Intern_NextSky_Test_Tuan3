@@ -158,7 +158,9 @@
   background: rgba(0, 0, 0, 0.3);
   opacity: 1;
   position: relative;
-  border: 8px solid transparent;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 8px 5px;
   background-clip: padding-box;
   box-sizing: content-box;
   margin: 0 !important;
@@ -166,7 +168,9 @@
 
 .hero-dots .swiper-pagination-bullet-active {
   background: var(--color-dark);
-  border: 8px solid transparent;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 8px 5px;
   background-clip: padding-box;
 }
 

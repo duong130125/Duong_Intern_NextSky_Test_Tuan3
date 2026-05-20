@@ -60,19 +60,19 @@
    ============================ */
 @media (max-width: 767px) {
   .fc-container{
-    width: min(390px, 100%);
-    max-width: 390px;
+    width: 100%;
+    max-width: 100%;
     min-height: 553px;
-    padding: 0;
-    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 
   /* --- Section container --- */
   .new-arrivals .container {
-    width: min(390px, 100%);
-    max-width: 390px;
-    padding: 0 0;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 
   /* --- Header area (title + subtitle) --- */
@@ -122,19 +122,21 @@
   /* --- Slider (keep Swiper functional!) --- */
   .new-arrivals-slider {
     width: 100%;
-    max-width: 390px;
+    max-width: 100%;
     overflow: hidden !important;
+    box-sizing: border-box;
   }
 
   /* DO NOT override swiper-wrapper to grid - let Swiper control the layout */
   .new-arrivals-slider .swiper-wrapper {
     display: flex !important;
     flex-wrap: nowrap !important;
+    box-sizing: border-box;
   }
 
   .new-arrivals-slider .swiper-slide {
-    width: calc((390px - 20px) / 2) !important;
-    flex-shrink: 0;
+    width: auto !important;
+    box-sizing: border-box;
   }
 
   /* --- Product card sizing --- */
