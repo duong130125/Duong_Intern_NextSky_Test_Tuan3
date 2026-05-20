@@ -62,7 +62,7 @@
   .fc-container{
     width: 100%;
     max-width: 100%;
-    min-height: 553px;
+    min-height: auto;
     padding: 0 20px;
     box-sizing: border-box;
   }
@@ -134,15 +134,16 @@
     box-sizing: border-box;
   }
 
+  /* 2 sản phẩm: (100% - 20px gap) / 2 */
   .new-arrivals-slider .swiper-slide {
-    width: auto !important;
+    width: calc((100% - 20px) / 2) !important;
     box-sizing: border-box;
   }
 
   /* --- Product card sizing --- */
   .new-arrivals .product-card {
-    width: 100%;
-    max-width: 185px;
+    width: 100% !important;
+    max-width: 100% !important;
     gap: 16px;
     margin: 0 auto;
     display: flex;
@@ -150,23 +151,23 @@
   }
 
   .new-arrivals .product-card .product-image-wrap {
-    width: 100%;
-    aspect-ratio: 3 / 4;
+    width: 100% !important;
+    aspect-ratio: 3 / 4 !important;
     height: auto !important;
-    max-height: none;
+    max-height: none !important;
     border-radius: 10px;
     overflow: hidden;
   }
 
   .new-arrivals .product-card .product-image-wrap img {
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
   /* --- Product info area --- */
   .new-arrivals .product-info {
     width: 100%;
-    max-height: 125px;
+    max-height: none;
     gap: 8px;
     height: auto;
   }

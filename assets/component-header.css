@@ -62,7 +62,7 @@
 /* === Mobile Bottom Nav === */
 .mobile-bottom-nav {
   position: relative;
-  width: min(430px, 100%);
+  width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
   background: var(--color-white);
