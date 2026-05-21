@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_primary": "#000000",
@@ -19,6 +28,21 @@
     "store_address": "268 St, South New York/NY 98944, United States",
     "store_phone": "+222-1800-2628",
     "store_email": "blueskytechcompany@gmail.com",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "menu_categories": "hot-categories",
+          "menu_service": ""
+        }
+      }
+    },
     "content_for_index": []
   }
 }
