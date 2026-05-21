@@ -113,20 +113,11 @@
         "collection": "",
         "products_to_show": 4
       }
-    },
-    "contact_form_dHVGHp": {
-      "type": "contact-form",
-      "name": "Contact Form",
-      "settings": {
-        "title": "Contact Us",
-        "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
-      }
     }
   },
   "order": [
     "hero_banner",
     "featured_collections",
-    "new_arrivals",
-    "contact_form_dHVGHp"
+    "new_arrivals"
   ]
 }
